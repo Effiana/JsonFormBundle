@@ -11,10 +11,9 @@
 
 namespace Effiana\JsonFormBundle\DependencyInjection\Compiler;
 
-use EffianaJsonForm\Transformer\ExtensionInterface;
+use Effiana\JsonForm\Transformer\ExtensionInterface;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
 
 /**
  * @author Nacho Martín <nacho@limenius.com>
@@ -28,11 +27,11 @@ class ExtensionCompilerPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if (!$container->hasDefinition('EffianaJsonForm\JsonForm')) {
+        if (!$container->hasDefinition('Effiana\JsonForm\JsonForm')) {
             return;
         }
 
-        $jsonform = $container->getDefinition('EffianaJsonForm\JsonForm');
+        $jsonform = $container->getDefinition('Effiana\JsonForm\JsonForm');
 
         foreach ($container->findTaggedServiceIds(self::EXTENSION_TAG) as $id => $attributes) {
             $extension = $container->getDefinition($id);

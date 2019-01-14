@@ -5,35 +5,35 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="EffianaJsonForm\Transformer\AbstractTransformer" abstract="true">
+        <service id="Effiana\JsonForm\Transformer\AbstractTransformer" abstract="true">
             <argument type="service" id="translator" />
             <argument type="service" id="jsonform.guesser.validator" />
         </service>
 
-        <service id="jsonform.transformer.integer" class="EffianaJsonForm\Transformer\IntegerTransformer"
-                 parent="EffianaJsonForm\Transformer\AbstractTransformer">
+        <service id="jsonform.transformer.integer" class="Effiana\JsonForm\Transformer\IntegerTransformer"
+                 parent="Effiana\JsonForm\Transformer\AbstractTransformer">
             <tag name="jsonform.transformer" form_type="integer"/>
         </service>
 
-        <service id="jsonform.transformer.array" class="EffianaJsonForm\Transformer\ArrayTransformer"
-                 parent="EffianaJsonForm\Transformer\AbstractTransformer">
+        <service id="jsonform.transformer.array" class="Effiana\JsonForm\Transformer\ArrayTransformer"
+                 parent="Effiana\JsonForm\Transformer\AbstractTransformer">
             <argument type="service" id="jsonform.resolver" />
             <tag name="jsonform.transformer" form_type="collection"/>
         </service>
 
-        <service id="jsonform.transformer.compound" class="EffianaJsonForm\Transformer\CompoundTransformer"
-                 parent="EffianaJsonForm\Transformer\AbstractTransformer">
+        <service id="jsonform.transformer.compound" class="Effiana\JsonForm\Transformer\CompoundTransformer"
+                 parent="Effiana\JsonForm\Transformer\AbstractTransformer">
             <argument type="service" id="jsonform.resolver" />
             <tag name="jsonform.transformer" form_type="compound"/>
         </service>
 
-        <service id="jsonform.transformer.choice" class="EffianaJsonForm\Transformer\ChoiceTransformer"
-                 parent="EffianaJsonForm\Transformer\AbstractTransformer">
+        <service id="jsonform.transformer.choice" class="Effiana\JsonForm\Transformer\ChoiceTransformer"
+                 parent="Effiana\JsonForm\Transformer\AbstractTransformer">
             <tag name="jsonform.transformer" form_type="choice"/>
         </service>
 
-        <service id="jsonform.transformer.string" class="EffianaJsonForm\Transformer\StringTransformer"
-                 parent="EffianaJsonForm\Transformer\AbstractTransformer">
+        <service id="jsonform.transformer.string" class="Effiana\JsonForm\Transformer\StringTransformer"
+                 parent="Effiana\JsonForm\Transformer\AbstractTransformer">
             <tag name="jsonform.transformer" form_type="text"/>
             <tag name="jsonform.transformer" form_type="url" widget="url"/>
             <tag name="jsonform.transformer" form_type="search" widget="search"/>
@@ -47,13 +47,13 @@
             <tag name="jsonform.transformer" form_type="datetime" widget="datetime"/>
         </service>
 
-        <service id="jsonform.transformer.number" class="EffianaJsonForm\Transformer\NumberTransformer"
-                 parent="EffianaJsonForm\Transformer\AbstractTransformer">
+        <service id="jsonform.transformer.number" class="Effiana\JsonForm\Transformer\NumberTransformer"
+                 parent="Effiana\JsonForm\Transformer\AbstractTransformer">
             <tag name="jsonform.transformer" form_type="number"/>
         </service>
 
-        <service id="jsonform.transformer.boolean" class="EffianaJsonForm\Transformer\BooleanTransformer"
-                 parent="EffianaJsonForm\Transformer\AbstractTransformer">
+        <service id="jsonform.transformer.boolean" class="Effiana\JsonForm\Transformer\BooleanTransformer"
+                 parent="Effiana\JsonForm\Transformer\AbstractTransformer">
             <tag name="jsonform.transformer" form_type="checkbox" widget="checkbox"/>
         </service>
     </services>

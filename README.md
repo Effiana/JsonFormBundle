@@ -128,12 +128,12 @@ In the following example we are reusing the StringTransformer class. By specifyi
 services:
     app.jsonform.file_type.transformer:
         class: "%jsonform.transformer.string.class%"
-        parent: EffianaJsonForm\Transformer\AbstractTransformer
+        parent: Effiana\JsonForm\Transformer\AbstractTransformer
         tags:
             - { name: jsonform.transformer, form_type: file, widget: file_widget }
 ```
 
-You can of course use your very own Transformer class, just make sure to implement the required `EffianaJsonForm\Transformer\TransformerInterface` when you do.
+You can of course use your very own Transformer class, just make sure to implement the required `Effiana\JsonForm\Transformer\TransformerInterface` when you do.
 
 ## Extending the default behaviour
 
@@ -143,7 +143,7 @@ In the following example we use an Extension to add a `submit_url` property to t
 ```php
 <?php
 
-use EffianaJsonForm\Transformer\ExtensionInterface;
+use Effiana\JsonForm\Transformer\ExtensionInterface;
 use Symfony\Component\Form\FormInterface;
 
 class FormDataExtension implements ExtensionInterface
@@ -171,7 +171,7 @@ class FormDataExtension implements ExtensionInterface
 }
 ```
 
-Make sure your Extension class implements the required `EffianaJsonForm\Transformer\ExtensionInterface`. To register your extension; create a new service definition and add the `jsonform.extension` tag to it.
+Make sure your Extension class implements the required `Effiana\JsonForm\Transformer\ExtensionInterface`. To register your extension; create a new service definition and add the `jsonform.extension` tag to it.
 
 ```yaml
 services:

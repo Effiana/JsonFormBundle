@@ -5,28 +5,28 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="jsonform.add_schema_extension" class="EffianaJsonForm\Form\Extension\AddJsonFormExtension" public="true">
+        <service id="jsonform.add_schema_extension" class="Effiana\JsonForm\Form\Extension\AddJsonFormExtension" public="true">
             <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType" />
         </service>
 
         <!-- Normalizes FormInterface when using the symfony serializer -->
-        <service id="jsonform.serializer.form_error_normalizer" class="EffianaJsonForm\Serializer\Normalizer\FormErrorNormalizer">
+        <service id="jsonform.serializer.form_error_normalizer" class="Effiana\JsonForm\Serializer\Normalizer\FormErrorNormalizer">
             <argument type="service" id="translator" />
             <tag name="serializer.normalizer" priority="-10" />
         </service>
 
-        <service id="jsonform.serializer.initial_values_normalizer" class="EffianaJsonForm\Serializer\Normalizer\InitialValuesNormalizer">
+        <service id="jsonform.serializer.initial_values_normalizer" class="Effiana\JsonForm\Serializer\Normalizer\InitialValuesNormalizer">
             <tag name="serializer.normalizer" priority="-10" />
         </service>
 
-        <service id="jsonform.resolver" class="EffianaJsonForm\Resolver" public="true"/>
+        <service id="jsonform.resolver" class="Effiana\JsonForm\Resolver" public="true"/>
 
-        <service id="EffianaJsonForm\JsonForm" class="EffianaJsonForm\JsonForm">
+        <service id="Effiana\JsonForm\JsonForm" class="Effiana\JsonForm\JsonForm">
             <argument type="service" id="jsonform.resolver" />
         </service>
-        <service id="jsonform" alias="EffianaJsonForm\JsonForm" public="true"/>
+        <service id="jsonform" alias="Effiana\JsonForm\JsonForm" public="true"/>
 
-        <service id="jsonform.guesser.validator" class="EffianaJsonForm\Guesser\ValidatorGuesser" public="true">
+        <service id="jsonform.guesser.validator" class="Effiana\JsonForm\Guesser\ValidatorGuesser" public="true">
             <argument type="service" id="validator.mapping.class_metadata_factory" />
         </service>
     </services>
