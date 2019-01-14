@@ -5,56 +5,56 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="Limenius\Liform\Transformer\AbstractTransformer" abstract="true">
+        <service id="EffianaJsonForm\Transformer\AbstractTransformer" abstract="true">
             <argument type="service" id="translator" />
-            <argument type="service" id="liform.guesser.validator" />
+            <argument type="service" id="jsonform.guesser.validator" />
         </service>
 
-        <service id="liform.transformer.integer" class="Limenius\Liform\Transformer\IntegerTransformer"
-                 parent="Limenius\Liform\Transformer\AbstractTransformer">
-            <tag name="liform.transformer" form_type="integer"/>
+        <service id="jsonform.transformer.integer" class="EffianaJsonForm\Transformer\IntegerTransformer"
+                 parent="EffianaJsonForm\Transformer\AbstractTransformer">
+            <tag name="jsonform.transformer" form_type="integer"/>
         </service>
 
-        <service id="liform.transformer.array" class="Limenius\Liform\Transformer\ArrayTransformer"
-                 parent="Limenius\Liform\Transformer\AbstractTransformer">
-            <argument type="service" id="liform.resolver" />
-            <tag name="liform.transformer" form_type="collection"/>
+        <service id="jsonform.transformer.array" class="EffianaJsonForm\Transformer\ArrayTransformer"
+                 parent="EffianaJsonForm\Transformer\AbstractTransformer">
+            <argument type="service" id="jsonform.resolver" />
+            <tag name="jsonform.transformer" form_type="collection"/>
         </service>
 
-        <service id="liform.transformer.compound" class="Limenius\Liform\Transformer\CompoundTransformer"
-                 parent="Limenius\Liform\Transformer\AbstractTransformer">
-            <argument type="service" id="liform.resolver" />
-            <tag name="liform.transformer" form_type="compound"/>
+        <service id="jsonform.transformer.compound" class="EffianaJsonForm\Transformer\CompoundTransformer"
+                 parent="EffianaJsonForm\Transformer\AbstractTransformer">
+            <argument type="service" id="jsonform.resolver" />
+            <tag name="jsonform.transformer" form_type="compound"/>
         </service>
 
-        <service id="liform.transformer.choice" class="Limenius\Liform\Transformer\ChoiceTransformer"
-                 parent="Limenius\Liform\Transformer\AbstractTransformer">
-            <tag name="liform.transformer" form_type="choice"/>
+        <service id="jsonform.transformer.choice" class="EffianaJsonForm\Transformer\ChoiceTransformer"
+                 parent="EffianaJsonForm\Transformer\AbstractTransformer">
+            <tag name="jsonform.transformer" form_type="choice"/>
         </service>
 
-        <service id="liform.transformer.string" class="Limenius\Liform\Transformer\StringTransformer"
-                 parent="Limenius\Liform\Transformer\AbstractTransformer">
-            <tag name="liform.transformer" form_type="text"/>
-            <tag name="liform.transformer" form_type="url" widget="url"/>
-            <tag name="liform.transformer" form_type="search" widget="search"/>
-            <tag name="liform.transformer" form_type="money" widget="money"/>
-            <tag name="liform.transformer" form_type="password" widget="password"/>
-            <tag name="liform.transformer" form_type="textarea" widget="textarea"/>
-            <tag name="liform.transformer" form_type="time" widget="time"/>
-            <tag name="liform.transformer" form_type="percent" widget="percent"/>
-            <tag name="liform.transformer" form_type="email" widget="email"/>
-            <tag name="liform.transformer" form_type="date" widget="date"/>
-            <tag name="liform.transformer" form_type="datetime" widget="datetime"/>
+        <service id="jsonform.transformer.string" class="EffianaJsonForm\Transformer\StringTransformer"
+                 parent="EffianaJsonForm\Transformer\AbstractTransformer">
+            <tag name="jsonform.transformer" form_type="text"/>
+            <tag name="jsonform.transformer" form_type="url" widget="url"/>
+            <tag name="jsonform.transformer" form_type="search" widget="search"/>
+            <tag name="jsonform.transformer" form_type="money" widget="money"/>
+            <tag name="jsonform.transformer" form_type="password" widget="password"/>
+            <tag name="jsonform.transformer" form_type="textarea" widget="textarea"/>
+            <tag name="jsonform.transformer" form_type="time" widget="time"/>
+            <tag name="jsonform.transformer" form_type="percent" widget="percent"/>
+            <tag name="jsonform.transformer" form_type="email" widget="email"/>
+            <tag name="jsonform.transformer" form_type="date" widget="date"/>
+            <tag name="jsonform.transformer" form_type="datetime" widget="datetime"/>
         </service>
 
-        <service id="liform.transformer.number" class="Limenius\Liform\Transformer\NumberTransformer"
-                 parent="Limenius\Liform\Transformer\AbstractTransformer">
-            <tag name="liform.transformer" form_type="number"/>
+        <service id="jsonform.transformer.number" class="EffianaJsonForm\Transformer\NumberTransformer"
+                 parent="EffianaJsonForm\Transformer\AbstractTransformer">
+            <tag name="jsonform.transformer" form_type="number"/>
         </service>
 
-        <service id="liform.transformer.boolean" class="Limenius\Liform\Transformer\BooleanTransformer"
-                 parent="Limenius\Liform\Transformer\AbstractTransformer">
-            <tag name="liform.transformer" form_type="checkbox" widget="checkbox"/>
+        <service id="jsonform.transformer.boolean" class="EffianaJsonForm\Transformer\BooleanTransformer"
+                 parent="EffianaJsonForm\Transformer\AbstractTransformer">
+            <tag name="jsonform.transformer" form_type="checkbox" widget="checkbox"/>
         </service>
     </services>
 

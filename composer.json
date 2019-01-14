@@ -1,19 +1,23 @@
 {
-    "name": "limenius/liform-bundle",
-    "description": "Bundle for Liform: Transform Symfony Forms into Json Schema",
+    "name": "effiana/jsonform-bundle",
+    "description": "Transform Symfony Forms into Json Schema",
     "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Dominik Labudzinski",
+            "email": "dominik@labudzinski.com"
+        },
         {
             "name": "Nacho Martín",
             "email": "nacho@limenius.com"
         }
     ],
     "autoload": {
-        "psr-4": { "Limenius\\LiformBundle\\": "" }
+        "psr-4": { "Effiana\\JsonFormBundle\\": "" }
     },
     "require": {
-        "limenius/liform": "^0.12.0"
-    },
-    "minimum-stability": "stable"
+        "effiana/jsonform": "dev-master",
+        "symfony/framework-bundle": "^4.2"
+    }
 }

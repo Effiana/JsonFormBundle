@@ -5,28 +5,28 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="liform.add_schema_extension" class="Limenius\Liform\Form\Extension\AddLiformExtension" public="true">
+        <service id="jsonform.add_schema_extension" class="EffianaJsonForm\Form\Extension\AddJsonFormExtension" public="true">
             <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType" />
         </service>
 
         <!-- Normalizes FormInterface when using the symfony serializer -->
-        <service id="liform.serializer.form_error_normalizer" class="Limenius\Liform\Serializer\Normalizer\FormErrorNormalizer">
+        <service id="jsonform.serializer.form_error_normalizer" class="EffianaJsonForm\Serializer\Normalizer\FormErrorNormalizer">
             <argument type="service" id="translator" />
             <tag name="serializer.normalizer" priority="-10" />
         </service>
 
-        <service id="liform.serializer.initial_values_normalizer" class="Limenius\Liform\Serializer\Normalizer\InitialValuesNormalizer">
+        <service id="jsonform.serializer.initial_values_normalizer" class="EffianaJsonForm\Serializer\Normalizer\InitialValuesNormalizer">
             <tag name="serializer.normalizer" priority="-10" />
         </service>
 
-        <service id="liform.resolver" class="Limenius\Liform\Resolver" public="true"/>
+        <service id="jsonform.resolver" class="EffianaJsonForm\Resolver" public="true"/>
 
-        <service id="Limenius\Liform\Liform" class="Limenius\Liform\Liform">
-            <argument type="service" id="liform.resolver" />
+        <service id="EffianaJsonForm\JsonForm" class="EffianaJsonForm\JsonForm">
+            <argument type="service" id="jsonform.resolver" />
         </service>
-        <service id="liform" alias="Limenius\Liform\Liform" public="true"/>
+        <service id="jsonform" alias="EffianaJsonForm\JsonForm" public="true"/>
 
-        <service id="liform.guesser.validator" class="Limenius\Liform\Guesser\ValidatorGuesser" public="true">
+        <service id="jsonform.guesser.validator" class="EffianaJsonForm\Guesser\ValidatorGuesser" public="true">
             <argument type="service" id="validator.mapping.class_metadata_factory" />
         </service>
     </services>

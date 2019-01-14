@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Limenius\LiformBundle package.
+ * This file is part of the Effiana\JsonFormBundle package.
  *
  * (c) Limenius <https://github.com/Limenius/>
  *
@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Limenius\LiformBundle;
+namespace Effiana\JsonFormBundle;
 
-use Limenius\LiformBundle\DependencyInjection\Compiler\ExtensionCompilerPass;
-use Limenius\LiformBundle\DependencyInjection\Compiler\TransformerCompilerPass;
+use Effiana\JsonFormBundle\DependencyInjection\Compiler\ExtensionCompilerPass;
+use Effiana\JsonFormBundle\DependencyInjection\Compiler\TransformerCompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
  * @author Nacho Martín <nacho@limenius.com>
  */
-class LimeniusLiformBundle extends Bundle
+class EffianaJsonFormBundle extends Bundle
 {
     /**
      * @inheritDoc

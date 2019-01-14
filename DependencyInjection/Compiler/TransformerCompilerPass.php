@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Limenius\LiformBundle package.
+ * This file is part of the Effiana\JsonFormBundle package.
  *
  * (c) Limenius <https://github.com/Limenius/>
  *
@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Limenius\LiformBundle\DependencyInjection\Compiler;
+namespace Effiana\JsonFormBundle\DependencyInjection\Compiler;
 
-use Limenius\Liform\Transformer\TransformerInterface;
+use EffianaJsonForm\Transformer\TransformerInterface;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -21,18 +21,18 @@ use Symfony\Component\DependencyInjection\Definition;
  */
 class TransformerCompilerPass implements CompilerPassInterface
 {
-    const TRANSFORMER_TAG = 'liform.transformer';
+    const TRANSFORMER_TAG = 'jsonform.transformer';
 
     /**
      * @inheritdoc
      */
     public function process(ContainerBuilder $container)
     {
-        if (!$container->hasDefinition('liform.resolver')) {
+        if (!$container->hasDefinition('jsonform.resolver')) {
             return;
         }
 
-        $resolver = $container->getDefinition('liform.resolver');
+        $resolver = $container->getDefinition('jsonform.resolver');
 
         foreach ($container->findTaggedServiceIds(self::TRANSFORMER_TAG) as $id => $attributes) {
             $transformer = $container->getDefinition($id);

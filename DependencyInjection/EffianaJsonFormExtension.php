@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Limenius\LiformBundle package.
+ * This file is part of the Effiana\JsonFormBundle package.
  *
  * (c) Limenius <https://github.com/Limenius/>
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Limenius\LiformBundle\DependencyInjection;
+namespace Effiana\JsonFormBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -23,7 +23,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * @link http://symfony.com/doc/current/cookbook/bundles/extension.html
  */
-class LimeniusLiformExtension extends Extension
+class EffianaJsonFormExtension extends Extension
 {
     /**
      * @inheritdoc

@@ -2,7 +2,7 @@ LiformBundle
 ============
 
 Bundle that integrates [Liform](https://github.com/Limenius/Liform) into Symfony. Liform is a library to serialize Symfony Forms into [JSON schema](http://json-schema.org/).
-For use with [liform-react](https://github.com/Limenius/liform-react) or [json-editor](https://github.com/jdorn/json-editor), or any other form generator based on json-schema.
+For use with [jsonform-react](https://github.com/Limenius/jsonform-react) or [json-editor](https://github.com/jdorn/json-editor), or any other form generator based on json-schema.
 
 It is very annoying to maintain Symfony forms that match forms in a client technology, such as JavaScript. It is also annoying to maintain a documentation of such forms. And it's error prone, too.
 
@@ -19,7 +19,7 @@ Feel free to clone it, run it, experiment, and copy the pieces you need to your 
 Open a console, navigate to your project directory and execute the
 following command to download the latest stable version of this bundle:
 
-    $ composer require limenius/liform-bundle
+    $ composer require limenius/jsonform-bundle
 
 This command requires you to have Composer installed globally, as explained
 in the *installation chapter* of the Composer documentation.
@@ -40,7 +40,7 @@ class AppKernel extends Kernel
         $bundles = array(
             // ...
 
-            new Limenius\LiformBundle\LimeniusLiformBundle(),
+            new Effiana\JsonFormBundle\LimeniusLiformBundle(),
         );
 
         // ...
@@ -56,7 +56,7 @@ Serializing a form into JSON Schema:
 
 ```php
         $form = $this->createForm(CarType::class, $car, ['csrf_protection' => false]);
-        $schema = json_encode($this->get('liform')->transform($form));
+        $schema = json_encode($this->get('jsonform')->transform($form));
 ```
 
 And `$schema` will contain a JSON Schema representation such as:
@@ -120,20 +120,20 @@ Check out [the Liform documentation](https://github.com/Limenius/Liform/blob/mas
 ## Using your own transformers
 
 Liform works by recursively inspecting the form, finding (resolving) the right transformer for every child and using that transformer to build the corresponding slice of the json-schema. So, if you want to modify the way a particular form type is transformed, you can add a transformer and configure it to to be applied for all children with a particular `block_prefix`.  
-To achieve this, you should create a new service definition and add the `liform.transformer` tag. You need to specify for which form-types your transformer will be applied by setting the `form_type` property of the tag to the corresponding `block_prefix`.
+To achieve this, you should create a new service definition and add the `jsonform.transformer` tag. You need to specify for which form-types your transformer will be applied by setting the `form_type` property of the tag to the corresponding `block_prefix`.
 
 In the following example we are reusing the StringTransformer class. By specifying the `widget` property of the tag we can scope the transformer to only work for types with that particular widget.  
 
 ```yaml
 services:
-    app.liform.file_type.transformer:
-        class: "%liform.transformer.string.class%"
-        parent: Limenius\Liform\Transformer\AbstractTransformer
+    app.jsonform.file_type.transformer:
+        class: "%jsonform.transformer.string.class%"
+        parent: EffianaJsonForm\Transformer\AbstractTransformer
         tags:
-            - { name: liform.transformer, form_type: file, widget: file_widget }
+            - { name: jsonform.transformer, form_type: file, widget: file_widget }
 ```
 
-You can of course use your very own Transformer class, just make sure to implement the required `Limenius\Liform\Transformer\TransformerInterface` when you do.
+You can of course use your very own Transformer class, just make sure to implement the required `EffianaJsonForm\Transformer\TransformerInterface` when you do.
 
 ## Extending the default behaviour
 
@@ -143,7 +143,7 @@ In the following example we use an Extension to add a `submit_url` property to t
 ```php
 <?php
 
-use Limenius\Liform\Transformer\ExtensionInterface;
+use EffianaJsonForm\Transformer\ExtensionInterface;
 use Symfony\Component\Form\FormInterface;
 
 class FormDataExtension implements ExtensionInterface
@@ -171,14 +171,14 @@ class FormDataExtension implements ExtensionInterface
 }
 ```
 
-Make sure your Extension class implements the required `Limenius\Liform\Transformer\ExtensionInterface`. To register your extension; create a new service definition and add the `liform.extension` tag to it.
+Make sure your Extension class implements the required `EffianaJsonForm\Transformer\ExtensionInterface`. To register your extension; create a new service definition and add the `jsonform.extension` tag to it.
 
 ```yaml
 services:
-    app.liform.form_data.extension:
+    app.jsonform.form_data.extension:
         class: MyProject\Application\Liform\FormDataExtension
         tags:
-            - { name: liform.extension }
+            - { name: jsonform.extension }
 ```
 
 ## Serializing initial values
@@ -200,7 +200,7 @@ $serializer = $this->get('serializer');
 $errors = $serializer->normalize($form);
 ```
 
-The format of the array containing the normalized form errors is compatible with the [liform-react](https://github.com/Limenius/liform-react) package. 
+The format of the array containing the normalized form errors is compatible with the [jsonform-react](https://github.com/Limenius/jsonform-react) package. 
 
 ## License
 
