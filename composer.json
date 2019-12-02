@@ -18,6 +18,6 @@
     },
     "require": {
         "effiana/jsonform": "dev-master",
-        "symfony/framework-bundle": "^4.2"
+        "symfony/framework-bundle": "^4.2 | ^5.0"
     }
 }
