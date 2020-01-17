@@ -17,7 +17,7 @@
         "psr-4": { "Effiana\\JsonFormBundle\\": "" }
     },
     "require": {
-        "effiana/jsonform": "dev-master",
+        "effiana/jsonform": "^1.0",
         "symfony/framework-bundle": "^4.2 | ^5.0"
     }
 }
